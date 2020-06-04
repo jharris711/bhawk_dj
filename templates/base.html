@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Baronhawk Poitier</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% include 'components/head-links.html' %}
+  </head>
+  <body>
+    <!-- Begin Site wrapper -->
+    <div class="site-wrap">
+      
+      {% block content  %}
+
+      {% endblock content %}
+  
+      {% include "components/footer.html" %}
+    </div>
+    <!-- End main container -->
+    {% include "components/scripts.html" %}
+  </body>
+</html>

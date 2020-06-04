@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+{%  block content %}
+{% include "components/navbar.html" with active="/booking"  %}
+
+
+<div class="site-blocks-cover inner-page-cover overlay" style="background-image: url({% static 'images/bhawk6.jpg' %}); background-position: top; background-repeat: no-repeat; background-attachment: fixed;"
+    data-aos="fade" data-stellar-background-ratio="0.5" data-aos="fade">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-md-7 text-center" data-aos="fade-up" data-aos-delay="400">
+                <h1 style="text-shadow: black 1px 0 10px;" class="text-white">Booking</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+    {% endif %}
+</div>
+  
+<div class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-7 mb-5">
+                <form method="POST" class="contact-form" role="form">
+                    {% csrf_token %}
+                    <div class="row form-group">
+                        <div class="col-md-12 mb-3 mb-md-0">
+                            <label class="font-weight-bold" for="name">Full Name</label>
+                            {{ form.full_name }}
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label class="font-weight-bold" for="email">Email</label>
+                            {{ form.email }}
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label class="font-weight-bold" for="subject">Subject</label>
+                            {{ form.subject }}
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label class="font-weight-bold" for="message">Message</label>
+                            {{ form.message }}
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <input style="text-shadow: black 1px 0 10px;" type="submit" value="Send Message" class="btn btn-primary py-3 px-4">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-4 ml-auto">
+                <div class="p-4 mb-3 bg-white">
+                    <h3 class="h5 text-black mb-3">Checkout:</h3>
+                    <a href="https://honeysoundsystem.bandcamp.com/album/temperado-tornado-ep" target="_blank"><p class="mb-4 font-weight-bold"><i class="fab fa-bandcamp"></i> Temperado Tornado EP</p></a>
+                    <a href="https://futuretimes.bandcamp.com/track/phickle-pickle" target="_blank"><p class="mb-4 font-weight-bold"><i class="fab fa-bandcamp"></i> Phickle Pickle - FIGS Compilation</p></a>
+                    <a href="https://futuretimes.bandcamp.com/track/phickle-pickle" target="_blank"><p class="mb-4 font-weight-bold"><i class="fab fa-soundcloud"></i> Soundcloud</p></a>
+                    <a href="https://www.facebook.com/DJBaronhawk/" target="_blank"><p class="mb-4 font-weight-bold"><i class="fab fa-facebook"></i> Facebook</p></a>
+                    <a href="https://www.instagram.com/baronhawkpoitier/?hl=en" target="_blank"><p class="mb-4 font-weight-bold"><i class="fab fa-instagram"></i> Instagram</p></a>
+                    <a href="https://twitter.com/Baronhawk" target="_blank"><p class="mb-4 font-weight-bold"><i class="fab fa-twitter"></i> Twitter</p></a>
+                    <p class="mb-4 font-weight-bold"><a href="mailto:emily@jadeanvilcollective.com?subject= Baronhawk Booking Info"><i class="fas fa-book"></i> Booking</a> | <a href="mailto:emily@jadeanvilcollective.com?subject= Baronhawk Press Contact"><i class="far fa-newspaper"></i> Press Contact</a></p>
+                </div>
+                <div class="p-4 mb-3 bg-white">
+                    <h3 class="h5 text-black mb-3 text-black">Honey Soundsystem | The NeedlExchange (TNX) | Jade Anvil Collective | Urban Artistry</h3>
+                    <hr>
+                    <h3 class="h5 text-black mb-3 text-black">Washington, DC | Baltimore </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

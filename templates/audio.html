@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load static %}
+{% load cloudinary %}
+{%  block content %}
+{% include "components/navbar.html" with active="/audio"  %}
+
+
+<div class="site-blocks-cover inner-page-cover overlay" style="background-image: url({% static 'images/bhawk8.jpg' %});"
+    data-aos="fade" data-stellar-background-ratio="0.5" data-aos="fade">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-md-7 text-center" data-aos="fade-up" data-aos-delay="400">
+                <h1 style="text-shadow: black 1px 0 10px;" class="text-white">Audio</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="site-section block-13">
+  <div class="container">
+    <div class="site-section-heading text-center mb-5 w-border col-md-6 mx-auto" data-aos="fade-up">
+      <h2 class="mb-5">EP / Singles</h2>
+    </div>
+    <div class="nonloop-block-13 owl-carousel">
+      <div class="text-center p-3 p-md-5 bg-white">
+        <a href="https://honeysoundsystem.bandcamp.com/album/temperado-tornado-ep" target="_blank">
+          <label for="image" style="color: black;"><h1>Temperado Tornado EP Pre-Order</h1></label>
+          <img style="box-shadow: 8px 5px 5px rgba(0, 0, 0, .5); border-radius: 10px;" name="image" src="images/temptor.jpg" alt="">
+        </a>
+      </div>
+      <div class="text-center p-3 p-md-5 bg-white"> 
+        <label for="iframe" style="color: black;"><h1>Phickle Pickle - Single</h1></label>
+        <iframe style="border: 0; width: 100%; height: 405px;"
+          name="iframe" 
+          src="https://bandcamp.com/EmbeddedPlayer/album=3871240048/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/track=2111048544/transparent=true/" 
+          seamless><a href="http://futuretimes.bandcamp.com/album/figs-compilation">FIGS Compilation by Baronhawk Poitier</a></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- -------------------------------- Video -------------------------------- -->
+<div class="site-section bg-dark block-13">
+  <div class="container" data-aos="fade-up">
+    <div class="row">
+      <div class="site-section-heading text-center mb-5 w-border col-md-6 mx-auto" data-aos="fade-up">
+        <h2 class="mb-5">Featured Video</h2>
+        <p>Slam varial mongo bluntslide Chris Haslam. Bruised heel Christ air bail Alternative Sports fakie</p>
+      </div>
+    </div>
+    <div style="display: flex; align-items: center; justify-content: center;" class="site-block-retro d-block d-md-flex" data-aos="fade-up">
+      <iframe style="border: 10px #e3207b solid"  width="560" height="315" src="https://www.youtube.com/embed/iX7b-R2TqEs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- ----------------------------- Soundcloud ------------------------------ -->
+<div class="site-section block-13">
+    <div class="container">
+        <div class="row">
+            <div class="site-section-heading text-center mb-5 w-border col-md-6 mx-auto">
+                <h2 class="mb-5">Soundcloud</h2>
+                <p>No comply masonite full-cab skate or die. Switch drop in deck Sacto helipop.</p>
+            </div>
+        </div>
+        <div class="nonloop-block-13 owl-carousel">
+            {% for soundcloud in soundclouds %}
+            <div class="text-center p-3 p-md-5 bg-white">
+                <h4 style="color: black;">{{ soundcloud.title }}</h4>
+                <hr>
+                <iframe name="soundcloud" 
+                    style="box-shadow: 8px 5px 5px rgba(0, 0, 0, .5); border-radius: 10px;" 
+                    width="100%" 
+                    height="420" 
+                    scrolling="no" 
+                    frameborder="no" 
+                    allow="autoplay" 
+                    src="{{ soundcloud.url|safe }}"></iframe>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+<!-- ------------------------------- Spotify ------------------------------- -->
+<div class="site-section bg-dark block-13">
+    <div class="container" data-aos="fade-up">
+        <div class="row">
+            <div class="site-section-heading text-center mb-5 w-border col-md-6 mx-auto" data-aos="fade-up">
+                <h2 class="mb-5">Spotify</h2>
+            </div>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: center;" class="site-block-retro d-block d-md-flex" data-aos="fade-up">
+            <iframe style="border: 10px #e3207b solid" src="https://open.spotify.com/embed/track/2MXNVUV7VUUVNk5u83CPWK" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        </div>
+  </div>
+</div>
+
+{% endblock %}
