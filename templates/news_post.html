@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% load cloudinary %}
+{%  block content %}
+{% include "components/navbar.html" with active="/upcoming"  %}
+
+
+<div class="site-section block-13">
+    <div class="container" data-aos="fade-up">
+        <div class="row">
+            <div class="site-section-heading mb-5 w-border col-md-6 mx-auto" data-aos="fade-up">
+                <h2 class="mb-3">{{ object.title }}</h2>
+                <h5 class="pb-2">{{ object.date }}</h5>
+                {% cloudinary object.image.public_id class="img-fluid rounded-top" crop="fill" %}
+                <p class="p-3 bg-dark rounded-bottom">{{ object.description }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

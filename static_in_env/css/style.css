@@ -209,10 +209,10 @@ a {
     margin-bottom: 15px; } }
 
 .site-footer {
-  padding: 4em 0; }
+  padding: 4em 0 1em 0; }
   @media (min-width: 768px) {
     .site-footer {
-      padding: 7em 0; } }
+      padding: 4em  0 2em 0; } }
   .site-footer p {
     color: #737373; }
   .site-footer h2, .site-footer h3, .site-footer h4, .site-footer h5 {
@@ -222,14 +222,14 @@ a {
     .site-footer a:hover {
       color: white; }
   .site-footer ul li {
-    margin-bottom: 10px; }
+    margin-bottom: 2px; }
   .site-footer .footer-heading {
     font-size: 1.3rem;
     text-transform: uppercase;
     letter-spacing: .1em;
     color: #fff;
     position: relative;
-    padding-bottom: 15px; }
+    padding-bottom: 5px; }
     .site-footer .footer-heading:before {
       content: "";
       background: #e3207b;

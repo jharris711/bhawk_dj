@@ -29,3 +29,13 @@ class BookingForm(forms.Form):
             "placeholder": "What's up?"
         })
     )
+
+
+class SubscribeForm(forms.Form):
+    email = forms.EmailField(
+        max_length=100,
+        widget=forms.TextInput(attrs={
+            "class": "form-control border-secondary text-white bg-transparent",
+            "placeholder": "Enter your email..."
+        })
+    )

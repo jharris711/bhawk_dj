@@ -1,9 +1,9 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
-from .forms import BookingForm
+from .forms import BookingForm, SubscribeForm
 from .models import Soundcloud, UpcomingShow, PressKitImg, Bandcamp, NewsPost
 
 
@@ -69,3 +69,8 @@ def upcoming(request, *args, **kwargs):
         "news_posts": news_posts
     }
     return render(request, 'news-and-events.html', context, status=200)
+
+
+class PostDetailView(DetailView):
+    model = NewsPost
+    template_name = "news_post.html"

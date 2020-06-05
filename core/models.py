@@ -1,6 +1,7 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
 import cloudinary.uploader
+from django.shortcuts import reverse
 
 
 class Soundcloud(models.Model):
@@ -65,10 +66,16 @@ class NewsPost(models.Model):
     title = models.CharField(max_length=200)
     date = models.DateField()
     description = description = models.TextField()
+    slug = models.SlugField()
     image = CloudinaryField('image')
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse("core:news-post", kwargs={
+            'slug': self.slug
+        })
 
     """ Informative name for model """
     def __unicode__(self):
@@ -77,3 +84,7 @@ class NewsPost(models.Model):
         except AttributeError:
             public_id = ''
         return "Photo <%s:%s>" % (self.title, public_id)
+
+
+class Subscriber(models.Model):
+    email = models.EmailField(max_length=300)
