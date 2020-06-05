@@ -16,14 +16,14 @@
               <a style="text-shadow: black 1px 0 10px; box-shadow: 3px 3px 3px rgba(0, 0, 0, .5); border-radius: 50%;" href="{% url 'core:booking' %}" class="btn btn-primary">Booking</a>
               <a style="text-shadow: black 1px 0 10px; box-shadow: 3px 3px 3px rgba(0, 0, 0, .5); border-radius: 50%;" href="{% url 'core:audio' %}" class="btn btn-primary">Audio</a>
               <a style="text-shadow: black 1px 0 10px; box-shadow: 3px 3px 3px rgba(0, 0, 0, .5); border-radius: 50%;" href="{% url 'core:social' %}" class="btn btn-primary">Social</a>
-              <a style="text-shadow: black 1px 0 10px; box-shadow: 3px 3px 3px rgba(0, 0, 0, .5); border-radius: 50%;" href="/upcoming" class="btn btn-primary">Upcoming</a>
+              <a style="text-shadow: black 1px 0 10px; box-shadow: 3px 3px 3px rgba(0, 0, 0, .5); border-radius: 50%;" href="{% url 'core:upcoming' %}" class="btn btn-primary">Upcoming</a>
             </div>
         </div>
     </div>
 </div>
 
 <!-- --------------------------- Upcoming Shows ---------------------------- -->
-<div class="site-section">
+<div class="site-section block-13">
     <div class="container">
         <div class="row">
             <div class="site-section-heading text-center mb-5 w-border col-md-6 mx-auto">
@@ -33,7 +33,7 @@
         <div class="row">
             {% for show in upcoming_shows %}
             <div class="col-md-6 col-lg-3 pb-2" data-aos="fade-up" data-aos-delay="100">
-                <a href="#" class="unit-9">
+                <a href="{{ show.link_to_tickets }}" target="_blank" class="unit-9">
                     <div class="image">
                         {% cloudinary show.image.public_id width=200 height=300 crop="fill" %}
                     </div>
@@ -44,7 +44,10 @@
                         {% if show.guest %}
                         <span>with {{ show.guest }}</span>
                         {% endif %}
+                        <span>{{ show.venue }}</span>
+                        <span>{{ show.city }}</span>
                     </div>
+                    <a class="btn" href="{{ show.link_to_tickets }}" target="_blank">Tickets/Info</a>
                 </a>
             </div>
             {% endfor %}
@@ -62,7 +65,7 @@
             </div>
         </div>
         <div style="display: flex; align-items: center; justify-content: center;" class="site-block-retro d-block d-md-flex" data-aos="fade-up">
-            <iframe  width="560" height="315" src="https://www.youtube.com/embed/iX7b-R2TqEs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe style="border: 10px #e3207b solid"  width="560" height="315" src="https://www.youtube.com/embed/iX7b-R2TqEs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
 </div>

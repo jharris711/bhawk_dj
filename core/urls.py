@@ -1,6 +1,6 @@
 from django.urls import path, include
 from django.views.generic import TemplateView
-from .views import home_page, press_kit, booking, audio, social
+from .views import home_page, press_kit, booking, audio, social, upcoming
 
 app_name = 'core'
 
@@ -10,4 +10,5 @@ urlpatterns = [
     path('booking/', booking, name='booking'),
     path('audio/', audio, name='audio'),
     path('social/', social, name='social'),
+    path('news-and-events/', upcoming, name='upcoming'),
 ]

@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
 from .forms import BookingForm
-from .models import Soundcloud, UpcomingShow, PressKitImg
+from .models import Soundcloud, UpcomingShow, PressKitImg, Bandcamp, NewsPost
 
 
 def home_page(request, *args, **kwargs):
@@ -49,11 +49,23 @@ def booking(request, *args, **kwargs):
 
 def audio(request, *args, **kwargs):
     soundclouds = Soundcloud.objects.all()
+    bandcamps = Bandcamp.objects.all()
     context = {
         "soundclouds": soundclouds,
+        "bandcamps": bandcamps
     }
     return render(request, "audio.html", context, status=200)
 
 
 def social(request, *args, **kwargs):
     return render(request, "social.html", status=200)
+
+
+def upcoming(request, *args, **kwargs):
+    shows = reversed(UpcomingShow.objects.all())
+    news_posts = reversed(NewsPost.objects.all())
+    context = {
+        "shows": shows,
+        "news_posts": news_posts
+    }
+    return render(request, 'news-and-events.html', context, status=200)

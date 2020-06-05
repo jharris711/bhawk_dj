@@ -27,7 +27,7 @@
                             <a style="text-shadow: black 1px 0 10px;" href="{% url 'core:social' %}">Social</a>
                         </li>
                         <li class="{% if active == '/upcoming' %}active{% endif %}">
-                            <a style="text-shadow: black 1px 0 10px;" href="/shows">Upcoming</a>
+                            <a style="text-shadow: black 1px 0 10px;" href="{% url 'core:upcoming' %}">Upcoming</a>
                         </li>
                     </ul>
                 </nav>
