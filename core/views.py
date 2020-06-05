@@ -10,9 +10,11 @@ from .models import Soundcloud, UpcomingShow, PressKitImg, Bandcamp, NewsPost
 def home_page(request, *args, **kwargs):
     soundclouds = Soundcloud.objects.all()
     upcoming_shows = reversed(UpcomingShow.objects.all())
+    news_posts = reversed(NewsPost.objects.all())
     context = {
         "soundclouds": soundclouds,
-        "upcoming_shows": upcoming_shows
+        "upcoming_shows": upcoming_shows,
+        "news_posts": news_posts
     }
     return render(request, "home.html", context, status=200)
 
