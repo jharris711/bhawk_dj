@@ -30,7 +30,7 @@
                 <h2 class="mb-5">Upcoming Shows</h2>
             </div>
         </div>
-        <div class="row">
+        <div class="row align-items-center">
             {% for show in upcoming_shows %}
             <div class="col-md-6 col-lg-3 pb-2" data-aos="fade-up" data-aos-delay="100">
                 <a href="{{ show.link_to_tickets }}" target="_blank" class="unit-9">
@@ -109,11 +109,11 @@
         </div>
         <div class="nonloop-block-13 owl-carousel">
             {% for post in news_posts %}
-            <div class="text-center p-3 p-md-5 rounded" style="background-color:#222831;" data-aos="fade-up" data-aos-delay="100">
+            <div class="text-center p-3 p-md-5 rounded-top" style="background-color:#222831;" data-aos="fade-up" data-aos-delay="100">
                 <a class="image rounded" href="{{ post.get_absolute_url }}">
                     {% cloudinary post.image.public_id class="img-fluid rounded" crop="fill" %}
                 </a>
-                <div class="p-4 bg-white rounded">
+                <div class="p-4 bg-white rounded-bottom">
                     <span class="d-block text-secondary small text-uppercase">{{ post.date }}</span>
                     <h2 class="h5 text-black mb-3"><a href="single.html">{{ post.title }}</a></h2>
                 </div>
